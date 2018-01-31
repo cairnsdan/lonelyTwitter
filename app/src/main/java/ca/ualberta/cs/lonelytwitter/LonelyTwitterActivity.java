@@ -26,6 +26,13 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * Implements Lonely Twitter app activity
+ *
+ * @author Daniel Cairns
+ * @see Tweet
+ * @version 1.5
+ */
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "tweets.sav";
@@ -35,7 +42,11 @@ public class LonelyTwitterActivity extends Activity {
 	private ArrayList<Tweet> tweetList;
 	private ArrayAdapter<Tweet> adapter;
 	
-	/** Called when the activity is first created. */
+	/**
+	 * Called when the activity is first created.
+	 *
+	 * @param savedInstanceState Saved Instance
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,6 +87,9 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
+	/**
+	 * Called on start, gets app working.
+	 */
 	@Override
 	protected void onStart() {
 
@@ -91,6 +105,11 @@ public class LonelyTwitterActivity extends Activity {
 
 	}
 
+	/**
+	 * Load saved tweets from file
+	 *
+	 * @throws RuntimeException IO Exception Error
+	 */
 	private void loadFromFile() {
 
 		try {
@@ -111,7 +130,12 @@ public class LonelyTwitterActivity extends Activity {
 		}
 
 	}
-	
+
+	/**
+	 * Saves tweet list in file
+	 *
+	 * @throws RuntimeException IO Exception or FileNotFound Exception
+	 */
 	private void saveInFile() {
 		try {
 
@@ -132,6 +156,9 @@ public class LonelyTwitterActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Called when app is destroyed
+	 */
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
